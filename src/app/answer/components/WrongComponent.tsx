@@ -1,5 +1,4 @@
 import {
-  Box,
   Card as ChakraCard,
   CardBody as ChakraCardBody,
   Text as ChakraText,
