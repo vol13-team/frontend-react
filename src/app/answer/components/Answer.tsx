@@ -1,7 +1,10 @@
-import React from "react";
 import { Box, Text } from "@chakra-ui/react";
 import styled from "styled-components";
-const Answer = (props: any) => {
+type AnswerProps = {
+  selectAnswer: string;
+};
+
+const Answer = (props: AnswerProps) => {
   return (
     <SBox>
       <SText>あなたの解答 :</SText>

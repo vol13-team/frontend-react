@@ -1,4 +1,3 @@
-import React from 'react'
 import styled from "styled-components";
 import { IoMdTime } from "react-icons/io";
 
@@ -15,16 +14,18 @@ const SideArticle = (props: Props) => {
   return (
     <SArticle>
       <SFlex>
-        <SImage src={imagePath} alt="スポンサー" />
-        <a href={url} target="_blank"><STitle>{title}</STitle></a>
+        <SImage src={imagePath} alt='スポンサー' />
+        <a href={url} target='_blank'>
+          <STitle>{title}</STitle>
+        </a>
       </SFlex>
       <STimeFlex>
         <IoMdTime />
         <STime>{`${startAt} ~ ${endAt}`}</STime>
       </STimeFlex>
     </SArticle>
-  )
-}
+  );
+};
 
 const SArticle = styled.article`
   margin-top: 16px;
@@ -65,4 +66,4 @@ const STime = styled.time`
   color: #333;
 `;
 
-export default SideArticle
+export default SideArticle;

@@ -1,4 +1,3 @@
-import React from 'react'
 import styled from "styled-components";
 
 const Thumbnail = () => {
@@ -8,12 +7,12 @@ const Thumbnail = () => {
         <SThumbnailTitle>記事タイトル</SThumbnailTitle>
         <SFlex>
           <span>@userId</span>
-          <SQiitaLogo src="/qiitaLogo.jpg" alt="qiitaロゴ" />
+          <SQiitaLogo src='/qiitaLogo.jpg' alt='qiitaロゴ' />
         </SFlex>
       </SThumbnailIn>
     </SThumbnail>
-  )
-}
+  );
+};
 
 const SThumbnail = styled.div`
   display: flex;
@@ -54,4 +53,4 @@ const SQiitaLogo = styled.img`
   height: 25px;
 `;
 
-export default Thumbnail
+export default Thumbnail;

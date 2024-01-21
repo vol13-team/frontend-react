@@ -1,7 +1,7 @@
-import Answer from "../app/answer/_components/Answer";
-import CollectComponent from "../app/answer/_components/CollectComponent";
-import WrongComponent from "../app/answer/_components/WrongComponent";
-import ExplanationCard from "../app/answer/_components/ExplanationCard";
+import Answer from "../app/answer/components/Answer";
+import CollectComponent from "../app/answer/components/CollectComponent";
+import WrongComponent from "../app/answer/components/WrongComponent";
+import ExplanationCard from "../app/answer/components/ExplanationCard";
 import { Button } from "@chakra-ui/react";
 
 const index = () => {

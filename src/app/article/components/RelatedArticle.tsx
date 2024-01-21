@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 
 const RelatedArticle = () => {
@@ -9,7 +8,7 @@ const RelatedArticle = () => {
           <SThumbnailTitle>記事タイトル</SThumbnailTitle>
           <SFlex>
             <span>@userId</span>
-            <SQiitaLogo src="/qiitaLogo.jpg" alt="qiitaロゴ" />
+            <SQiitaLogo src='/qiitaLogo.jpg' alt='qiitaロゴ' />
           </SFlex>
         </SThumbnailIn>
       </SThumbnail>

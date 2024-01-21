@@ -6,7 +6,6 @@ import {
   Text,
   Grid as ChakraGrid,
 } from "@chakra-ui/react";
-import React from "react";
 
 type Props = {
   options: string[]; //選択肢

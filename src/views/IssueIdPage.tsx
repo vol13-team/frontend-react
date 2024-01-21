@@ -1,5 +1,4 @@
-// import React from "react";
-// import SelectionCard from "../app/issueId/_components/SelectionCard";
+// // import SelectionCard from "../app/issueId/_components/SelectionCard";
 // import QuestionCard from "../app/issueId/_components/QuestionCard";
 // import { Box, Button } from "@chakra-ui/react";
 // import { useSelect } from "../hooks/useSelect";

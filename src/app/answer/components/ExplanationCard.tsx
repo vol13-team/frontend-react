@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { Text, Card, CardBody, CardHeader, CardFooter } from "@chakra-ui/react";
-import React from "react";
 
 type Props = {
   collectOption: string;

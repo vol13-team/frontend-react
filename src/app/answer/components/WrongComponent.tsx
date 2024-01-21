@@ -1,17 +1,15 @@
 import {
-  Box,
   Card as ChakraCard,
   CardBody as ChakraCardBody,
   Text as ChakraText,
 } from "@chakra-ui/react";
-import React from "react";
 import styled from "styled-components";
-const CollectComponent = () => {
+const WrongComponent = () => {
   return (
     <SCard>
       <SCardBody>
-        <SText>正解</SText>
-        <SMark>○</SMark>
+        <SText>不正解</SText>
+        <SMark>×</SMark>
       </SCardBody>
     </SCard>
   );
@@ -20,7 +18,7 @@ const CollectComponent = () => {
 const SCard = styled(ChakraCard)`
   width: 60%;
   margin: auto;
-  background-color: rgba(255, 0, 0, 0.4);
+  background-color: rgba(0, 0, 255, 0.4);
 `;
 
 const SCardBody = styled(ChakraCardBody)`
@@ -33,15 +31,15 @@ const SCardBody = styled(ChakraCardBody)`
 `;
 const SText = styled(ChakraText)`
   text-align: center;
-  color: rgb(255, 0, 0);
+  color: rgb(0, 0, 255);
   font-size: 30px;
   font-weight: bold;
 `;
 const SMark = styled(ChakraText)`
-  color: rgb(255, 0, 0);
+  color: rgb(0, 0, 255);
   font-size: 50px;
   font-weight: bold;
   margin-left: 20px;
   margin-bottom: 8px;
 `;
-export default CollectComponent;
+export default WrongComponent;

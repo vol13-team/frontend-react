@@ -3,15 +3,12 @@ import {
   ModalOverlay,
   ModalContent,
   ModalHeader,
-  ModalFooter,
   ModalBody,
   ModalCloseButton,
-  Button,
   useDisclosure,
 } from "@chakra-ui/react";
-import { theme } from "@/components/thme";
+import { theme } from "../../../components/thme";
 import styled from "styled-components";
-import { CheckIcon, CloseIcon } from "@chakra-ui/icons";
 import IssueForm from "./IssueForm";
 
 function BasicUsage() {

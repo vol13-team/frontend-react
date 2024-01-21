@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import Article from "./Article";
-import SidePanel from "../app/_components/sidepanel/SidePanel";
+import Article from "./ArticlePage";
+import SidePanel from "../components/SidePanel";
 import { Link } from "react-router-dom";
 
 const dummyArticles = [

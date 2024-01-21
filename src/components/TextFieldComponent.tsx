@@ -1,5 +1,4 @@
 import { Box, FormLabel, Text, Textarea } from "@chakra-ui/react";
-import React from "react";
 import { FieldValues, RegisterOptions, useFormContext } from "react-hook-form";
 import styled from "styled-components";
 
