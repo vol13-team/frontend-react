@@ -1,6 +1,6 @@
 // import { useEffect, useState } from "react";
 import styled from "styled-components";
-import SidePanel from "../app/_components/sidepanel/SidePanel";
+import SidePanel from "../components/SidePanel";
 // import Article from "./Article";
 // import { Link } from "react-router-dom";
 // interface ArticleProps {
