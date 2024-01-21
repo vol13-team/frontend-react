@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { Card, CardBody, CardHeader, Text } from "@chakra-ui/react";
-import React from "react";
 
 const StyledCard = styled(Card)`
   width: 80%;

@@ -1,7 +1,7 @@
 import {
   createArticleInterface,
   updateArticleInterface,
-} from "@/apis/types/articleInterface";
+} from "./types/articleInterface";
 
 const fetchArticleAll = async () => {
   // article_id
@@ -33,6 +33,7 @@ const fetchByArticleID = async (articleID: string) => {
         },
       }
     );
+    return res;
   } catch (e) {
     console.error(e);
   }

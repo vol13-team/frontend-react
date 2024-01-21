@@ -1,7 +1,7 @@
 import {
   createUserInterface,
   updateUserInterface,
-} from "@/apis/types/userInterface";
+} from "./types/userInterface";
 
 const fetchAllUsers = async () => {
   // user_id    String

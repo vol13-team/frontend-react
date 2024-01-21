@@ -1,7 +1,7 @@
 import {
   createIssueInterface,
   updateIssueInterface,
-} from "@/apis/types/issueInterface";
+} from "./types/issueInterface";
 
 //DB内全てを取得
 const fetchAllIssue = async () => {

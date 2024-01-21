@@ -1,7 +1,7 @@
 import {
   createAnswerInterface,
   updateAnswerInterface,
-} from "@/apis/types/answerInterface";
+} from "./types/answerInterface";
 
 const fetchAllAnswers = async () => {
   // answer_id

@@ -3,7 +3,6 @@ import {
   CardBody as ChakraCardBody,
   Text as ChakraText,
 } from "@chakra-ui/react";
-import React from "react";
 import styled from "styled-components";
 const CollectComponent = () => {
   return (
