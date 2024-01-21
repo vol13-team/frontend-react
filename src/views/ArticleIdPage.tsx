@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import Thumbnail from "../app/article/articleId/_components/Thumbnail";
-import ArticleDetail from "../app/article/articleId/_components/ArticleDetail";
-import QuestionCard from "../app/article/articleId/_components/QuestionCard";
-import SidePanel from "../app/article/articleId/_components/SidePanel";
-import BasicUsage from "../app/article/articleId/_components/CreateIssueModal";
+import Thumbnail from "../app/article/components/Thumbnail";
+import ArticleDetail from "../app/article/components/ArticleDetail";
+import QuestionCard from "../app/article/components/QuestionCard";
+import SidePanel from "../components/SidePanel";
+import BasicUsage from "../app/article/components/CreateIssueModal";
 
 const DetailPage = () => {
   return (
@@ -43,6 +43,8 @@ const DetailPage = () => {
     </div>
   );
 };
+
+export default DetailPage;
 
 const SMain = styled.main`
   width: 100%;
@@ -92,5 +94,3 @@ const SQuestionTitle = styled.h2`
   text-align: start;
   color: #333;
 `;
-
-export default DetailPage;
