@@ -1,10 +1,11 @@
 import { Box, Select, FormLabel } from "@chakra-ui/react";
 import * as React from "react";
-import { useFormContext } from "react-hook-form";
+import { FieldValues, RegisterOptions, useFormContext } from "react-hook-form";
 
 type Props = {
   name: string;
   label: string;
+  validationRules?: RegisterOptions<FieldValues, string>;
   options: string[];
 };
 const SingleSelectionField = (pros: Props) => {

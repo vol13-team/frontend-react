@@ -6,7 +6,7 @@ import { FieldValues, RegisterOptions, useFormContext } from "react-hook-form";
 type InputProps = {
   name: string;
   label: string;
-  validationRules?: RegisterOptions<FieldValues, string>;
+  validationRules?: RegisterOptions<FieldValues>;
 };
 
 const TextFieldComponent: React.FC<InputProps> = ({
