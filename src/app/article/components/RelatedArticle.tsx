@@ -8,7 +8,8 @@ const RelatedArticle = () => {
           <SThumbnailTitle>記事タイトル</SThumbnailTitle>
           <SFlex>
             <span>@userId</span>
-            <SQiitaLogo src='/qiitaLogo.jpg' alt='qiitaロゴ' />
+            {/* <SQiitaLogo src='@/qiitaLogo.jpg' alt='qiitaロゴ' /> */}
+            <SQiitaLogo src='@/qiitaLogo.jpg' alt='qiitaロゴ' />
           </SFlex>
         </SThumbnailIn>
       </SThumbnail>

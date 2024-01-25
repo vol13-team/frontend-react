@@ -9,14 +9,8 @@ interface Props {
   questionNum?: number;
 }
 
-const Article = (props: Props) => {
-  const {
-    user_id,
-    title,
-    icon_url,
-    latest_update = "3日前",
-    questionNum = 3,
-  } = props;
+const Article = (pro: Props) => {
+  const { user_id, title, icon_url, latest_update, questionNum } = pro;
   return (
     <SArticle>
       {/* <div> */}
