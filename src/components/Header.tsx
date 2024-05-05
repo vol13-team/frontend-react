@@ -5,11 +5,22 @@ import styled from "styled-components";
 
 const Header: React.FC = () => {
   const Bg = styled.div`
-    background-color: #D9D9D9;`;
+    background-color: #D9D9D9;
+    position: fixed;
+    top: 0;
+    margin:0 0 40px 0;
+    width: 100%;
+    height: 4rem;
+    margin-bottom: 1rem;`;
+
+  const Logo = styled.h1`
+    font-size: 2rem;
+    margin: 0 0 0 80px;
+    `;
   return (
     <>
       <Bg className="title">
-        <h1 className="logo">ロゴ入れる？</h1>
+        <Logo>ロゴ入れる？</Logo>
 
         <nav className="navigation">
           <Link to="/mypage">

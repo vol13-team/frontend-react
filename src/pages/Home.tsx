@@ -22,9 +22,9 @@ const Home: React.FC = () => {
   const Bg = styled.div`
     background-color: #D9D9D9;
     width: 80%;
-    heigth: 80%;
-    margin: 40px auto;
-    padding: 80px 0`;
+    margin: 100px auto 0 auto;
+    padding: 0 0 40px 0;
+    `;
 
   const Title = styled(Heading)`
     font-weight: bold;
