@@ -58,7 +58,6 @@ const ArticleImage: React.FC<ArticleProps> = (props: ArticleProps) => {
     margin: 10px 0 0 10px;
     color: black;
     font-size: 2rem;
-    chara: none;
     `;
 
   const TimeDiv = styled.div`
