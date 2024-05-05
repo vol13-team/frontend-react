@@ -29,7 +29,7 @@ const Home: React.FC = () => {
   const Title = styled(Heading)`
     font-weight: bold;
     font-size: 4rem;
-    margin :0 0 0 80px
+    margin :40px 0 0 80px
     `;
 
   const SubTitleDiv = styled.div`
