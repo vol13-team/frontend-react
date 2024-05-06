@@ -1,10 +1,29 @@
-import { Outlet, Link } from "react-router-dom";
-import "../assets/css/Header.css";
-import dummyIcon from "../assets/images/image.png";
+import { Outlet } from "react-router-dom";
 import styled from "styled-components";
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/clerk-react";
 
-const Header: React.FC = () => {
-  const Bg = styled.div`
+export const Header: React.FC = () => {
+  return (
+    <>
+      <Bg>
+        <Logo>ロゴ入れる？</Logo>
+        <Navigate>
+          <SigninDiv>
+            <SignedOut>
+              <SignIn />
+            </SignedOut>
+            <SignedIn>
+              <User />
+            </SignedIn>
+          </SigninDiv>
+        </Navigate>
+      </Bg>
+      <Outlet />
+    </>
+  );
+};
+
+const Bg = styled.header`
     background-color: #D9D9D9;
     position: fixed;
     top: 0;
@@ -13,34 +32,31 @@ const Header: React.FC = () => {
     height: 4rem;
     margin-bottom: 1rem;`;
 
-  const Logo = styled.h1`
+const Logo = styled.h1`
     font-size: 2rem;
     margin: 0 0 0 80px;
     `;
-  return (
-    <>
-      <Bg className="title">
-        <Logo>ロゴ入れる？</Logo>
 
-        <nav className="navigation">
-          <Link to="/mypage">
-            <img src={dummyIcon} alt="icon" className="img" />
-          </Link>
+const Navigate = styled.nav`
+  display: flex;
+  justify-content: flex-end;
+  position: absolute;
+  top: 5px;
+  right: 0;
+  align-items: center;
+  padding: 1rem 0;
+  top: 0;
+`;
 
-          {/* <Link to="/" className="linknav">
-            Home
-          </Link>
-          <Link to="/about" className="linknav">
-            About
-          </Link>
-          <Link to="/contact" className="linknav">
-            Contact
-          </Link> */}
-        </nav>
-      </Bg>
-      <Outlet />
-    </>
-  );
-};
+const SigninDiv = styled.div`
+    margin: auto 40px auto 0;`;
 
-export default Header;
+const SignIn = styled(SignInButton)`
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    background-color: white;
+    `;
+
+const User = styled(UserButton)`
+    padding: 4rem;
+  `;

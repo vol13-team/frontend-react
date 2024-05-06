@@ -9,41 +9,7 @@ interface ArticleProps {
   time: number;
 }
 
-const ArticleDiv = styled.div`
-    background-color: #ffffdd;
-    width:400px;
-    height:300px;
-    z-index: 0;
-    border : 3px solid black;
-    border-radius: 10px;`;
-
-const ImgDiv = styled.div`
-    border-bottom: 3px solid black;`;
-
-const ArticleImg = styled.img`
-    width: 400px;
-    height: 150px;
-    z-index: 1;
-    background-color: #000000
-    border-bottom: 3px solid black;
-    vertical-align: bottom;
-    `;
-
-const ArticleTitle = styled.h2`
-    margin: 10px 0 0 10px;
-    color: black;
-    font-size: 2rem;
-    `;
-
-const TimeDiv = styled.div`
-    display: flex;
-    justify-content: flex-end;`;
-
-const ArticleTime = styled.p`
-    margin : 50px 20px 0 0;
-    color: black;
-    font-size: 1rem;`;
-const ArticleImage: React.FC<ArticleProps> = (props: ArticleProps) => {
+export const ArticleImage: React.FC<ArticleProps> = (props: ArticleProps) => {
   const [count, setCount] = React.useState<number>(props.time);
   const [time, setTime] = React.useState<string>("");
   // 時間計算と表示
@@ -87,4 +53,37 @@ const ArticleImage: React.FC<ArticleProps> = (props: ArticleProps) => {
   );
 };
 
-export default ArticleImage;
+const ArticleDiv = styled.div`
+    background-color: #ffffdd;
+    width:400px;
+    height:300px;
+    z-index: 0;
+    border : 3px solid black;
+    border-radius: 10px;`;
+
+const ImgDiv = styled.div`
+    border-bottom: 3px solid black;`;
+
+const ArticleImg = styled.img`
+    width: 400px;
+    height: 150px;
+    z-index: 1;
+    background-color: #000000
+    border-bottom: 3px solid black;
+    vertical-align: bottom;
+    `;
+
+const ArticleTitle = styled.h2`
+    margin: 10px 0 0 10px;
+    color: black;
+    font-size: 2rem;
+    `;
+
+const TimeDiv = styled.div`
+    display: flex;
+    justify-content: flex-end;`;
+
+const ArticleTime = styled.p`
+    margin : 50px 20px 0 0;
+    color: black;
+    font-size: 1rem;`;
