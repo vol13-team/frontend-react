@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import dummyUser from "../assets/images/image.png";
 import { Heading, Text, Button } from "@yamada-ui/react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import Cookies from "js-cookie";
 
 interface Sample {
   id: number;
@@ -18,6 +19,12 @@ export const Home: React.FC = () => {
     { id: 2, title: "Point2", summary: "This is point2", icon: dummyUser, url: "/" },
     { id: 3, title: "Point3", summary: "This is point3", icon: dummyUser, url: "/" },
   ]);
+  const [token, setToken] = useState<string | undefined>(Cookies.get("__session"));
+
+  useEffect(() => {
+    // ログイン時にトークンを更新する
+    setToken(Cookies.get("__session"));
+  }, []);
 
   return (
     <>
@@ -46,7 +53,7 @@ export const Home: React.FC = () => {
           </PointDiv>
           <StartButtonDiv>
             <StartButton>
-              <Link to={`/mypage`}>はじめる</Link>
+              {token === undefined ? "未ログイン" : <Link to={`/mypage`}>はじめる</Link>}
             </StartButton>
           </StartButtonDiv>
         </Bg>
