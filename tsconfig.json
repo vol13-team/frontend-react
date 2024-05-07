@@ -20,6 +20,12 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"],
+  "include": [
+    "src",
+    "react_practice/Props_Prac2.tsx",
+    "react_practice/Test.tsx",
+    "react_practice/TopPage.tsx",
+    "react_practice/PropsPrac.tsx"
+  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
