@@ -2,6 +2,7 @@ import React from "react";
 // import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { useUser } from "@clerk/clerk-react";
+import { ArticleImage } from "../components/ArticleImage";
 
 export const MyPage: React.FC = () => {
   const { user } = useUser();
@@ -13,9 +14,58 @@ export const MyPage: React.FC = () => {
         <UserInfoDiv>
           <UserName>{user?.username}</UserName>
           <UserID>{user?.id}</UserID>
-          <UserProf>{}</UserProf>
+          <UserProf>データベースに入れたプロフィール</UserProf>
         </UserInfoDiv>
       </UserDiv>
+
+      <div style={{ textAlign: "center" }}>
+        <a href="#createProblem">作成した問題</a>
+        <a href="#answerdProblem">解答した問題</a>
+      </div>
+      <div id="createProblem">
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <ArticleImage
+            id={1}
+            img="https://source.unsplash.com/random"
+            title="createTest"
+            time={55}
+          />
+          <ArticleImage
+            id={2}
+            img="https://source.unsplash.com/random"
+            title="createTest"
+            time={55}
+          />
+          <ArticleImage
+            id={3}
+            img="https://source.unsplash.com/random"
+            title="createTest"
+            time={55}
+          />
+        </div>
+      </div>
+      <div id="answerdProblem">
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <ArticleImage
+            id={1}
+            img="https://source.unsplash.com/random"
+            title="answerdTest"
+            time={55}
+          />
+          <ArticleImage
+            id={2}
+            img="https://source.unsplash.com/random"
+            title="answerdTest"
+            time={55}
+          />
+          <ArticleImage
+            id={3}
+            img="https://source.unsplash.com/random"
+            title="answerdTest"
+            time={55}
+          />
+        </div>
+      </div>
     </>
   );
 };
@@ -32,6 +82,7 @@ const UserInfoDiv = styled.div`
 
 const UserImg = styled.img`
   max-width: 100px;
+  max-height: 100px;
   margin: 0 20px 0 40px;
   border-radius: 10px;`;
 
@@ -46,4 +97,4 @@ const UserID = styled.p`
 
 const UserProf = styled.p`
   margin: 0 0 10px 0;
-  max-width: 30%;`;
+  `;

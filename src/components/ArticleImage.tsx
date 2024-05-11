@@ -2,8 +2,9 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-// データをpropsで受け取り、記事の画像、タイトル、投稿時間を表示するコンポーネント
+// データをpropsで受け取り、id、記事の画像、タイトル、投稿時間を表示するコンポーネント
 interface ArticleProps {
+  id: number;
   title: string;
   img: string;
   time: number;
@@ -59,7 +60,8 @@ const ArticleDiv = styled.div`
     height:300px;
     z-index: 0;
     border : 3px solid black;
-    border-radius: 10px;`;
+    border-radius: 10px;
+    margin: 20px 10px 0 0;`;
 
 const ImgDiv = styled.div`
     border-bottom: 3px solid black;`;

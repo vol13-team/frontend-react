@@ -19,11 +19,15 @@ export const Home: React.FC = () => {
     { id: 2, title: "Point2", summary: "This is point2", icon: dummyUser, url: "/" },
     { id: 3, title: "Point3", summary: "This is point3", icon: dummyUser, url: "/" },
   ]);
-  const [token, setToken] = useState<string | undefined>(Cookies.get("__session"));
+  const [token, setToken] = useState<string | undefined>(
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
+    Cookies.get("__session") as string | undefined
+  );
 
   useEffect(() => {
     // ログイン時にトークンを更新する
-    setToken(Cookies.get("__session"));
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
+    setToken(Cookies.get("__session") as string | undefined);
   }, []);
 
   return (
