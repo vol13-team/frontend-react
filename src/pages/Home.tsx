@@ -19,14 +19,10 @@ export const Home: React.FC = () => {
     { id: 2, title: "Point2", summary: "This is point2", icon: dummyUser, url: "/" },
     { id: 3, title: "Point3", summary: "This is point3", icon: dummyUser, url: "/" },
   ]);
-  const [token, setToken] = useState<string | undefined>(
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
-    undefined
-  );
+  const [token, setToken] = useState<string | undefined>(undefined);
 
   useEffect(() => {
     // ログイン時にトークンを更新する
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
     setToken(Cookies.get("__session"));
     console.log(token);
   }, [token]);
@@ -58,6 +54,7 @@ export const Home: React.FC = () => {
           </PointDiv>
           <StartButtonDiv>
             <Button>
+              {/* なんでか分からんけど、ログインしてもサイレンダリングされない */}
               {token === undefined ? "未ログイン" : <Link to={`/mypage`}>はじめる</Link>}
             </Button>
           </StartButtonDiv>
@@ -106,12 +103,13 @@ const Icons = styled.img`
     width: 50%
   `;
 
-const ArticlePoints = styled.h2`
+const ArticlePoints = styled(Text)`
     color: #CA841C;
     margin: 0 0 10px 0;
+    font-size: 2rem;
   `;
 
-const ArticleSummary = styled.h3`
+const ArticleSummary = styled(Text)`
     font-weight: bold;
   `;
 

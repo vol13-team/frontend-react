@@ -34,6 +34,12 @@ export const MyPage: React.FC = () => {
       title: "createTest",
       time: 3600,
     },
+    {
+      id: 4,
+      img: "https://source.unsplash.com/random",
+      title: "createTest",
+      time: 3600,
+    },
   ];
 
   const articleAns = [
@@ -69,9 +75,14 @@ export const MyPage: React.FC = () => {
             <UserProf>データベースに入れたプロフィール</UserProf>
           </UserInfoDiv>
         </UserDiv>
-        <PostButton>
-          <Link to={"/post"}>投稿する</Link>
-        </PostButton>
+        <ButtonDiv>
+          <PostButton>
+            <Link to={"/post"}>投稿する</Link>
+          </PostButton>
+          <PostButton>
+            <Link to={"/profile"}>プロフィールを編集</Link>
+          </PostButton>
+        </ButtonDiv>
       </InfoDiv>
 
       <Tabs variant="sticky-solid" isFitted>
@@ -108,19 +119,21 @@ export const MyPage: React.FC = () => {
   );
 };
 
+const ButtonDiv = styled.div`
+  z-index: 0;`;
 const PostButton = styled(Button)`
-    margin: 20px 0 0 0;`;
+  margin : 10px 0`;
 
 const InfoDiv = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: ;
   
   margin: 120px 80px 40px 40px;`;
 
 const ArticleDiv = styled.div`
   display: flex;
-  justify-content: center;
-  width: 80%;
+  justify-content: flex-start;
+  flex-wrap: wrap;
   `;
 
 const UserDiv = styled.div`

@@ -18,10 +18,10 @@ export const ArticleImage: React.FC<ArticleProps> = (props: ArticleProps) => {
     const timerID = setInterval(() => {
       setCount((time) => time + 1);
     }, 1000);
-    if (count > 60) {
+    if (count < 3600 && count > 60) {
       const date = Math.floor(count / 60);
       setTime(date + "分前");
-    } else if (count > 3600) {
+    } else if (count < 86400 && count > 3600) {
       const date = Math.floor(count / 3600);
       setTime(date + "時間前");
     } else if (count > 86400) {
@@ -56,8 +56,7 @@ export const ArticleImage: React.FC<ArticleProps> = (props: ArticleProps) => {
 
 const ArticleDiv = styled.div`
     background-color: #ffffdd;
-    width: calc(25% - 5px);
-    height: 500px;
+    width: calc(25% - 20px);
     z-index: 1;
     border : 5px solid black;
     border-radius: 10px;
