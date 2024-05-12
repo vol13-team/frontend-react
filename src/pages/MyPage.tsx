@@ -28,6 +28,12 @@ export const MyPage: React.FC = () => {
       title: "createTest",
       time: 3600,
     },
+    {
+      id: 4,
+      img: "https://source.unsplash.com/random",
+      title: "createTest",
+      time: 3600,
+    },
   ];
 
   const articleAns = [
@@ -64,7 +70,7 @@ export const MyPage: React.FC = () => {
           </UserInfoDiv>
         </UserDiv>
         <PostButton>
-          <Link to={"/detail"}>投稿する</Link>
+          <Link to={"/post"}>投稿する</Link>
         </PostButton>
       </InfoDiv>
 
@@ -107,13 +113,14 @@ const PostButton = styled(Button)`
 
 const InfoDiv = styled.div`
   display: flex;
-  justify-content: space-vetween;
+  justify-content: space-between;
   
   margin: 120px 80px 40px 40px;`;
 
 const ArticleDiv = styled.div`
   display: flex;
-  justify-content: wrap;
+  justify-content: center;
+  width: 80%;
   `;
 
 const UserDiv = styled.div`

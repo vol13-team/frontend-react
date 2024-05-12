@@ -35,7 +35,7 @@ export const Home: React.FC = () => {
     <>
       <main>
         <Bg>
-          <Title>Article Park</Title>
+          <Title size={"4xl"}>Article Park</Title>
           <SubTitleDiv>
             <SubTitle>
               問題作成で、

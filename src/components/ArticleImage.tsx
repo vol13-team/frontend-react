@@ -56,7 +56,7 @@ export const ArticleImage: React.FC<ArticleProps> = (props: ArticleProps) => {
 
 const ArticleDiv = styled.div`
     background-color: #ffffdd;
-    width: calc(33.33% - 5px);
+    width: calc(25% - 5px);
     height: 500px;
     z-index: 1;
     border : 5px solid black;
@@ -70,7 +70,7 @@ const ImgDiv = styled.div`
 
 const ArticleImg = styled.img`
     width: 100%;
-    height: 300px;
+    height: 20rem;
     border-bottom: 3px solid black;
     vertical-align: bottom;`;
 
@@ -84,6 +84,6 @@ const TimeDiv = styled.div`
     justify-content: flex-end;`;
 
 const ArticleTime = styled.p`
-    margin : 50px 20px 0 0;
+    margin : 30px 20px 0 0;
     color: black;
     font-size: 1rem;`;
