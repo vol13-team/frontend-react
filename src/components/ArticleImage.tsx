@@ -43,7 +43,7 @@ export const ArticleImage: React.FC<ArticleProps> = (props: ArticleProps) => {
         </ImgDiv>
 
         <ArticleTitle>
-          <Link to="mordal">{props.title}</Link>
+          <Link to="/mordal/">{props.title}</Link>
         </ArticleTitle>
 
         <TimeDiv>
@@ -56,30 +56,28 @@ export const ArticleImage: React.FC<ArticleProps> = (props: ArticleProps) => {
 
 const ArticleDiv = styled.div`
     background-color: #ffffdd;
-    width:400px;
-    height:300px;
-    z-index: 0;
-    border : 3px solid black;
+    width: calc(33.33% - 5px);
+    height: 500px;
+    z-index: 1;
+    border : 5px solid black;
     border-radius: 10px;
-    margin: 20px 10px 0 0;`;
+    margin: 20px 10px;`;
 
 const ImgDiv = styled.div`
-    border-bottom: 3px solid black;`;
+    border-bottom: 3px solid black;
+    text-align: center;
+    z-index: 0;`;
 
 const ArticleImg = styled.img`
-    width: 400px;
-    height: 150px;
-    z-index: 1;
-    background-color: #000000
+    width: 100%;
+    height: 300px;
     border-bottom: 3px solid black;
-    vertical-align: bottom;
-    `;
+    vertical-align: bottom;`;
 
 const ArticleTitle = styled.h2`
-    margin: 10px 0 0 10px;
+    margin: 20px 0 30px 20px;
     color: black;
-    font-size: 2rem;
-    `;
+    font-size: 2rem;`;
 
 const TimeDiv = styled.div`
     display: flex;

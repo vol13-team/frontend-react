@@ -3,78 +3,124 @@ import React from "react";
 import styled from "styled-components";
 import { useUser } from "@clerk/clerk-react";
 import { ArticleImage } from "../components/ArticleImage";
+import { Tabs, TabPanel, Tab, Button } from "@yamada-ui/react";
+import { Link } from "react-router-dom";
 
 export const MyPage: React.FC = () => {
   const { user } = useUser();
 
+  const articleCre = [
+    {
+      id: 1,
+      img: "https://source.unsplash.com/random",
+      title: "createTest",
+      time: 55,
+    },
+    {
+      id: 2,
+      img: "https://source.unsplash.com/random",
+      title: "createTest",
+      time: 5,
+    },
+    {
+      id: 3,
+      img: "https://source.unsplash.com/random",
+      title: "createTest",
+      time: 3600,
+    },
+  ];
+
+  const articleAns = [
+    {
+      id: 1,
+      img: "https://source.unsplash.com/random",
+      title: "createTest",
+      time: 55,
+    },
+    {
+      id: 2,
+      img: "https://source.unsplash.com/random",
+      title: "answerdTest",
+      time: 5,
+    },
+
+    {
+      id: 3,
+      img: "https://source.unsplash.com/random",
+      title: "answerdTest",
+      time: 3600,
+    },
+  ];
+
   return (
     <>
-      <UserDiv>
-        <UserImg src={user?.imageUrl} alt="icon" />
-        <UserInfoDiv>
-          <UserName>{user?.username}</UserName>
-          <UserID>{user?.id}</UserID>
-          <UserProf>データベースに入れたプロフィール</UserProf>
-        </UserInfoDiv>
-      </UserDiv>
+      <InfoDiv>
+        <UserDiv>
+          <UserImg src={user?.imageUrl} alt="icon" />
+          <UserInfoDiv>
+            <UserName>{user?.username}</UserName>
+            <UserID>{user?.id}</UserID>
+            <UserProf>データベースに入れたプロフィール</UserProf>
+          </UserInfoDiv>
+        </UserDiv>
+        <PostButton>
+          <Link to={"/detail"}>投稿する</Link>
+        </PostButton>
+      </InfoDiv>
 
-      <div style={{ textAlign: "center" }}>
-        <a href="#createProblem">作成した問題</a>
-        <a href="#answerdProblem">解答した問題</a>
-      </div>
-      <div id="createProblem">
-        <div style={{ display: "flex", justifyContent: "center" }}>
-          <ArticleImage
-            id={1}
-            img="https://source.unsplash.com/random"
-            title="createTest"
-            time={55}
-          />
-          <ArticleImage
-            id={2}
-            img="https://source.unsplash.com/random"
-            title="createTest"
-            time={55}
-          />
-          <ArticleImage
-            id={3}
-            img="https://source.unsplash.com/random"
-            title="createTest"
-            time={55}
-          />
-        </div>
-      </div>
-      <div id="answerdProblem">
-        <div style={{ display: "flex", justifyContent: "center" }}>
-          <ArticleImage
-            id={1}
-            img="https://source.unsplash.com/random"
-            title="answerdTest"
-            time={55}
-          />
-          <ArticleImage
-            id={2}
-            img="https://source.unsplash.com/random"
-            title="answerdTest"
-            time={55}
-          />
-          <ArticleImage
-            id={3}
-            img="https://source.unsplash.com/random"
-            title="answerdTest"
-            time={55}
-          />
-        </div>
-      </div>
+      <Tabs variant="sticky-solid" isFitted>
+        <Tab>作成した問題</Tab>
+        <Tab>解答した問題</Tab>
+        <TabPanel>
+          <ArticleDiv>
+            {articleCre.map((article) => (
+              <ArticleImage
+                key={article.id}
+                id={article.id}
+                img={article.img}
+                title={article.title}
+                time={article.time}
+              />
+            ))}
+          </ArticleDiv>
+        </TabPanel>
+        <TabPanel>
+          <ArticleDiv>
+            {articleAns.map((article) => (
+              <ArticleImage
+                key={article.id}
+                id={article.id}
+                img={article.img}
+                title={article.title}
+                time={article.time}
+              />
+            ))}
+          </ArticleDiv>
+        </TabPanel>
+      </Tabs>
     </>
   );
 };
+
+const PostButton = styled(Button)`
+    margin: 20px 0 0 0;`;
+
+const InfoDiv = styled.div`
+  display: flex;
+  justify-content: space-vetween;
+  
+  margin: 120px 80px 40px 40px;`;
+
+const ArticleDiv = styled.div`
+  display: flex;
+  justify-content: wrap;
+  `;
 
 const UserDiv = styled.div`
   width: 100%;
   display: flex;
   justify-content: flex-start;
-  margin: 120px 0 40px 40px;
+  margin: 0 0 40px 40px;
   `;
 
 const UserInfoDiv = styled.div`
@@ -88,7 +134,7 @@ const UserImg = styled.img`
 
 const UserName = styled.h2`
   font-size: 2rem;
-  margin: 0 0 10px 0;`;
+  margin: -10px 0 10px 0;`;
 
 const UserID = styled.p`
   margin: 0 0 10px 0;

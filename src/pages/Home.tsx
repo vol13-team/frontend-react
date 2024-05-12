@@ -21,14 +21,15 @@ export const Home: React.FC = () => {
   ]);
   const [token, setToken] = useState<string | undefined>(
     // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
-    Cookies.get("__session") as string | undefined
+    undefined
   );
 
   useEffect(() => {
     // ログイン時にトークンを更新する
     // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
-    setToken(Cookies.get("__session") as string | undefined);
-  }, []);
+    setToken(Cookies.get("__session"));
+    console.log(token);
+  }, [token]);
 
   return (
     <>
@@ -56,9 +57,9 @@ export const Home: React.FC = () => {
             ))}
           </PointDiv>
           <StartButtonDiv>
-            <StartButton>
+            <Button>
               {token === undefined ? "未ログイン" : <Link to={`/mypage`}>はじめる</Link>}
-            </StartButton>
+            </Button>
           </StartButtonDiv>
         </Bg>
       </main>
@@ -74,8 +75,7 @@ const Bg = styled.div`
     `;
 
 const Title = styled(Heading)`
-    font-weight: bold;
-    font-size: 4rem;
+
     margin :40px 0 0 80px
     `;
 
@@ -120,11 +120,3 @@ const StartButtonDiv = styled.div`
     justify-content: flex-end;
     margin: 100px 80px 0 0;
     `;
-
-const StartButton = styled(Button)`
-    font-size: 2rem;
-    border-radius: 20px;
-    background-color: gray;
-    padding: 5px 30px;
-    color: white;
-  `;
