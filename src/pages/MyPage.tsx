@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 export const MyPage: React.FC = () => {
   const { user } = useUser();
 
+  // ダミーデータを入れる
   const articleCre = [
     {
       id: 1,

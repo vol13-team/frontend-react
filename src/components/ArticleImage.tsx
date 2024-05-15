@@ -43,7 +43,7 @@ export const ArticleImage: React.FC<ArticleProps> = (props: ArticleProps) => {
         </ImgDiv>
 
         <ArticleTitle>
-          <Link to="/mordal/">{props.title}</Link>
+          <Link to="/detail/">{props.title}</Link>
         </ArticleTitle>
 
         <TimeDiv>

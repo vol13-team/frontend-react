@@ -55,7 +55,7 @@ export const Home: React.FC = () => {
           <StartButtonDiv>
             <Button>
               {/* なんでか分からんけど、ログインしてもサイレンダリングされない */}
-              {token === undefined ? "未ログイン" : <Link to={`/mypage`}>はじめる</Link>}
+              {token === undefined ? "未ログイン" : <Link to={`/pickup`}>はじめる</Link>}
             </Button>
           </StartButtonDiv>
         </Bg>

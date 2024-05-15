@@ -1,27 +1,55 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, Link } from "react-router-dom";
 import styled from "styled-components";
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/clerk-react";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import Cookies from "js-cookie";
+import { useEffect, useState } from "react";
 
 export const Header: React.FC = () => {
+  const [token, setToken] = useState<string | undefined>(undefined);
+
+  useEffect(() => {
+    setToken(Cookies.get("__session"));
+  }, [token]);
+
   return (
     <>
       <Bg>
         <Logo>ロゴ入れる？</Logo>
         <Navigate>
-          <SigninDiv>
-            <SignedOut>
-              <SignIn />
-            </SignedOut>
-            <SignedIn>
-              <User />
-            </SignedIn>
-          </SigninDiv>
+          {token === undefined ? (
+            <SigninDiv>
+              <SignedOut>
+                <SignIn />
+              </SignedOut>
+              <SignedIn>
+                <User />
+              </SignedIn>
+            </SigninDiv>
+          ) : (
+            <>
+              <SigninDiv>
+                <SignedOut>
+                  <SignIn />
+                </SignedOut>
+                <SignedIn>
+                  <User />
+                </SignedIn>
+              </SigninDiv>
+              <Link to="mypage">
+                <AccountIcon fontSize="large" />
+              </Link>
+            </>
+          )}
         </Navigate>
       </Bg>
       <Outlet />
     </>
   );
 };
+
+const AccountIcon = styled(AccountCircleIcon)`
+    margin: 0 40px 0 0px;`;
 
 const Bg = styled.header`
     background-color: #D9D9D9;
