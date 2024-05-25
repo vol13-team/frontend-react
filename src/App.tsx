@@ -4,6 +4,7 @@ import "./App.css";
 import { Home } from "./pages/Home";
 import { Header } from "./components/Header";
 import { MyPage } from "./pages/MyPage";
+import { Pickup } from "./pages/Pickup";
 
 const App: React.FC = () => {
   return (
@@ -15,7 +16,7 @@ const App: React.FC = () => {
           <Route path="/detail/:id"></Route>
           <Route path="/post"></Route>
           <Route path="/profile"></Route>
-          <Route path="pickup"></Route>
+          <Route path="/pickup" element={<Pickup />}></Route>
         </Route>
       </Routes>
     </UIProvider>
