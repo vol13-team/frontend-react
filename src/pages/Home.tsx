@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import dummyUser from "../assets/images/image.png";
 import { Heading, Text, Button } from "@yamada-ui/react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import Cookies from "js-cookie";
 
 interface Sample {
   id: number;
@@ -18,12 +19,19 @@ export const Home: React.FC = () => {
     { id: 2, title: "Point2", summary: "This is point2", icon: dummyUser, url: "/" },
     { id: 3, title: "Point3", summary: "This is point3", icon: dummyUser, url: "/" },
   ]);
+  const [token, setToken] = useState<string | undefined>(undefined);
+
+  useEffect(() => {
+    // ログイン時にトークンを更新する
+    setToken(Cookies.get("__session"));
+    console.log(token);
+  }, [token]);
 
   return (
     <>
       <main>
         <Bg>
-          <Title>Article Park</Title>
+          <Title size={"4xl"}>Article Park</Title>
           <SubTitleDiv>
             <SubTitle>
               問題作成で、
@@ -45,9 +53,10 @@ export const Home: React.FC = () => {
             ))}
           </PointDiv>
           <StartButtonDiv>
-            <StartButton>
-              <Link to={`/mypage`}>はじめる</Link>
-            </StartButton>
+            <Button>
+              {/* なんでか分からんけど、ログインしてもサイレンダリングされない */}
+              {token === undefined ? "未ログイン" : <Link to={`/pickup`}>はじめる</Link>}
+            </Button>
           </StartButtonDiv>
         </Bg>
       </main>
@@ -63,8 +72,7 @@ const Bg = styled.div`
     `;
 
 const Title = styled(Heading)`
-    font-weight: bold;
-    font-size: 4rem;
+
     margin :40px 0 0 80px
     `;
 
@@ -95,12 +103,13 @@ const Icons = styled.img`
     width: 50%
   `;
 
-const ArticlePoints = styled.h2`
+const ArticlePoints = styled(Text)`
     color: #CA841C;
     margin: 0 0 10px 0;
+    font-size: 2rem;
   `;
 
-const ArticleSummary = styled.h3`
+const ArticleSummary = styled(Text)`
     font-weight: bold;
   `;
 
@@ -109,11 +118,3 @@ const StartButtonDiv = styled.div`
     justify-content: flex-end;
     margin: 100px 80px 0 0;
     `;
-
-const StartButton = styled(Button)`
-    font-size: 2rem;
-    border-radius: 20px;
-    background-color: gray;
-    padding: 5px 30px;
-    color: white;
-  `;

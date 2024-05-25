@@ -1,20 +1,24 @@
 import { Route, Routes } from "react-router-dom";
+import { UIProvider } from "@yamada-ui/react";
 import "./App.css";
-import testimg from "./stories/assets/context.png";
 import { Home } from "./pages/Home";
 import { Header } from "./components/Header";
-// import MyPage from "./pages/MyPage";
-import { ArticleImage } from "./components/ArticleImage";
+import { MyPage } from "./pages/MyPage";
 
 const App: React.FC = () => {
   return (
-    <Routes>
-      <Route path="/" element={<Header />}>
-        <Route path="/" element={<Home />} />
-        {/* <Route path="/mypage" element={<MyPage />} /> */}
-        <Route path="/article" element={<ArticleImage img={testimg} title={"TEST"} time={55} />} />
-      </Route>
-    </Routes>
+    <UIProvider>
+      <Routes>
+        <Route path="/" element={<Header />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/mypage" element={<MyPage />} />
+          <Route path="/detail/:id"></Route>
+          <Route path="/post"></Route>
+          <Route path="/profile"></Route>
+          <Route path="pickup"></Route>
+        </Route>
+      </Routes>
+    </UIProvider>
   );
 };
 
