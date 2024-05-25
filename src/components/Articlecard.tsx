@@ -5,7 +5,6 @@ interface Card {
   id: number;
   title: string;
   tag: string;
-  //image: string;
   liked: boolean;
   viewed: boolean;
   created_at: number;

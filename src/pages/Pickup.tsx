@@ -3,7 +3,6 @@ import { Articlecard } from "../components/Articlecard";
 import styled from "styled-components";
 
 export const Pickup: React.FC = () => {
-  //ダミーデータ
   const dammy = [
     {
       id: 1,
