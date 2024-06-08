@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import dummyUser from "../assets/images/image.png";
 import { Heading, Text, Button } from "@yamada-ui/react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import Cookies from "js-cookie";
+import { useAuth } from "@clerk/clerk-react";
 
 interface Sample {
   id: number;
@@ -14,18 +14,12 @@ interface Sample {
 }
 
 export const Home: React.FC = () => {
+  const { isSignedIn } = useAuth();
   const [archicles] = useState<Sample[]>([
     { id: 1, title: "Point1", summary: "This is point1", icon: dummyUser, url: "/" },
     { id: 2, title: "Point2", summary: "This is point2", icon: dummyUser, url: "/" },
     { id: 3, title: "Point3", summary: "This is point3", icon: dummyUser, url: "/" },
   ]);
-  const [token, setToken] = useState<string | undefined>(undefined);
-
-  useEffect(() => {
-    // ログイン時にトークンを更新する
-    setToken(Cookies.get("__session"));
-    console.log(token);
-  }, [token]);
 
   return (
     <>
@@ -55,7 +49,7 @@ export const Home: React.FC = () => {
           <StartButtonDiv>
             <Button>
               {/* なんでか分からんけど、ログインしてもサイレンダリングされない */}
-              {token === undefined ? "未ログイン" : <Link to={`/pickup`}>はじめる</Link>}
+              {isSignedIn ?? false ? <Link to={`/pickup`}>はじめる</Link> : "未ログイン"}
             </Button>
           </StartButtonDiv>
         </Bg>
