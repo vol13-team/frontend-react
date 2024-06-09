@@ -2,6 +2,7 @@ import React from "react";
 import { Articlecard } from "../components/Articlecard";
 import styled from "styled-components";
 import { Heading, Button } from "@yamada-ui/react";
+import { Link } from "react-router-dom";
 
 export const Pickup: React.FC = () => {
   const dammy = [
@@ -55,7 +56,9 @@ export const Pickup: React.FC = () => {
     <>
       <H1 size="lg">PickUp問題集</H1>
       <ButtonDiv>
-        <Button>投稿する</Button>
+        <Button>
+          <Link to="">投稿する</Link>
+        </Button>
       </ButtonDiv>
       <Style>
         <PickUpDiv>
