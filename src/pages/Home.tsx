@@ -48,7 +48,6 @@ export const Home: React.FC = () => {
           </PointDiv>
           <StartButtonDiv>
             <Button>
-              {/* なんでか分からんけど、ログインしてもサイレンダリングされない */}
               {isSignedIn ?? false ? <Link to={`/pickup`}>はじめる</Link> : "未ログイン"}
             </Button>
           </StartButtonDiv>

@@ -71,9 +71,6 @@ export const MyPage: React.FC = () => {
         </UserDiv>
         <ButtonDiv>
           <PostButton>
-            <Link to={"/post"}>投稿する</Link>
-          </PostButton>
-          <PostButton>
             <Link to={"/profile"}>プロフィールを編集</Link>
           </PostButton>
         </ButtonDiv>

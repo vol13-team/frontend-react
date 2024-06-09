@@ -2,19 +2,22 @@ import React from "react";
 import styled from "styled-components";
 
 interface Card {
-  id: number;
+  idNum: number;
   title: string;
   tag: string;
   liked: boolean;
   viewed: boolean;
   created_at: number;
+  imgUrl: string | undefined;
 }
 
 export const Articlecard: React.FC<Card> = (Card) => {
   return (
-    <section style={{ margin: 90 }}>
+    <>
       <Carddiv>
-        <Thumbnail>{Card.id}</Thumbnail>
+        <Thumbnail>
+          <img src={Card.imgUrl} alt="" />
+        </Thumbnail>
         <Content>
           <Title>{Card.title}</Title>
           <Tag>{Card.tag}</Tag>
@@ -27,7 +30,7 @@ export const Articlecard: React.FC<Card> = (Card) => {
           </Footer>
         </Content>
       </Carddiv>
-    </section>
+    </>
   );
 };
 
