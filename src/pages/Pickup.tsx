@@ -101,15 +101,16 @@ justify-content: center;
 `;
 
 const PickUpDiv = styled.div`
-  width: 100%;
-  
+  width: 75%;
+
 `;
 
 const PickUpList = styled.ul`
 display: flex;
 justify-content: flex-start;
 flex-wrap: wrap;
-margin: 0 auto;
+margin: 0;
+padding: 0;
 
 `;
 
