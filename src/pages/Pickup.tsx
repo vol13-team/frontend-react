@@ -20,7 +20,7 @@ export const Pickup: React.FC = () => {
       title: "b",
       tag: "b",
       liked: false,
-      viewed: true,
+      viewed: false,
       created_at: 2,
       imgUrl: "https://source.unsplash.com/random",
     },
@@ -37,7 +37,7 @@ export const Pickup: React.FC = () => {
       id: 2,
       title: "b",
       tag: "b",
-      liked: false,
+      liked: true,
       viewed: true,
       created_at: 2,
       imgUrl: "https://source.unsplash.com/random",
@@ -101,15 +101,16 @@ justify-content: center;
 `;
 
 const PickUpDiv = styled.div`
-  width: 100%;
-  
+  width: 75%;
+
 `;
 
 const PickUpList = styled.ul`
 display: flex;
 justify-content: flex-start;
 flex-wrap: wrap;
-margin: 0 auto;
+margin: 0;
+padding: 0;
 
 `;
 

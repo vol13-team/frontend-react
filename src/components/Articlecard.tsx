@@ -1,5 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import { Text } from "@yamada-ui/react";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import CheckIcon from "@mui/icons-material/Check";
 
 interface Card {
   idNum: number;
@@ -12,6 +16,12 @@ interface Card {
 }
 
 export const Articlecard: React.FC<Card> = (Card) => {
+  const [liked, setLiked] = useState(Card.liked);
+
+  const handleLike = (): void => {
+    setLiked(!liked);
+  };
+
   return (
     <>
       <Carddiv>
@@ -23,8 +33,10 @@ export const Articlecard: React.FC<Card> = (Card) => {
           <Tag>{Card.tag}</Tag>
           <Footer>
             <Icons>
-              <Icon>{Card.liked}</Icon>
-              <Icon>{Card.viewed}</Icon>
+              <button onClick={handleLike}>
+                {liked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+              </button>
+              {Card.viewed ? <CheckIcon color="secondary" /> : <Text>未読</Text>}
             </Icons>
             <Time>{Card.created_at}</Time>
           </Footer>
@@ -81,9 +93,6 @@ color: #999;`;
 const Icons = styled.div`
 display: flex;
 gap: 8px`;
-
-const Icon = styled.span`
-font-size: 18px;`;
 
 const Time = styled.span`
 font-size: 14px;
