@@ -5,6 +5,8 @@ import { Home } from "./pages/Home";
 import { Header } from "./components/Header";
 import { MyPage } from "./pages/MyPage";
 import { Pickup } from "./pages/Pickup";
+import Question from "./pages/Question";
+import Answer from "./pages/Answer";
 
 const App: React.FC = () => {
   return (
@@ -17,6 +19,8 @@ const App: React.FC = () => {
           <Route path="/post"></Route>
           <Route path="/profile"></Route>
           <Route path="/pickup" element={<Pickup />}></Route>
+          <Route path="/question" element={<Question />}></Route>
+          <Route path="/answer" element={<Answer />}></Route>
         </Route>
       </Routes>
     </UIProvider>
