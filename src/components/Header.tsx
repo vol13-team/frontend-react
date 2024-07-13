@@ -9,7 +9,9 @@ export const Header: React.FC = () => {
   return (
     <>
       <Bg>
-        <Logo>ロゴ入れる？</Logo>
+        <Logo>
+          <img src="src/assets/images/logo.png" alt="ロゴ画像" width={"100px"} />
+        </Logo>
         <Navigate>
           <SigninDiv>
             <SignedOut>
