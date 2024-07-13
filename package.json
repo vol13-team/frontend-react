@@ -35,7 +35,7 @@
     "@chromatic-com/storybook": "^1.2.22",
     "@storybook/addon-essentials": "^7.6.12",
     "@storybook/addon-interactions": "^7.6.12",
-    "@storybook/addon-links": "^7.6.12",
+    "@storybook/addon-links": "^8.1.11",
     "@storybook/addon-onboarding": "^1.0.11",
     "@storybook/blocks": "^7.6.12",
     "@storybook/react": "^7.6.12",
