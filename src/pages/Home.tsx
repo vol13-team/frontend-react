@@ -23,36 +23,34 @@ export const Home: React.FC = () => {
 
   return (
     <>
-      <main>
-        <Bg>
-          <Title size={"4xl"}>Article Park</Title>
-          <SubTitleDiv>
-            <SubTitle>
-              問題作成で、
-              <br />
-              気軽なアウトプットを。
-            </SubTitle>
-          </SubTitleDiv>
-          <PointDiv>
-            {archicles.map((article) => (
-              <PointDetail key={article.id}>
-                <Icons src={article.icon} alt="icon" />
-                <Link to={article.url}>
-                  <Point>
-                    <ArticlePoints>{article.title}</ArticlePoints>
-                    <ArticleSummary>{article.summary}</ArticleSummary>
-                  </Point>
-                </Link>
-              </PointDetail>
-            ))}
-          </PointDiv>
-          <StartButtonDiv>
-            <Button>
-              {isSignedIn ?? false ? <Link to={`/pickup`}>はじめる</Link> : "未ログイン"}
-            </Button>
-          </StartButtonDiv>
-        </Bg>
-      </main>
+      <Bg>
+        <Title size={"4xl"}>Article Park</Title>
+        <SubTitleDiv>
+          <SubTitle>
+            問題作成で、
+            <br />
+            気軽なアウトプットを。
+          </SubTitle>
+        </SubTitleDiv>
+        <PointDiv>
+          {archicles.map((article) => (
+            <PointDetail key={article.id}>
+              <Icons src={article.icon} alt="icon" />
+              <Link to={article.url}>
+                <Point>
+                  <ArticlePoints>{article.title}</ArticlePoints>
+                  <ArticleSummary>{article.summary}</ArticleSummary>
+                </Point>
+              </Link>
+            </PointDetail>
+          ))}
+        </PointDiv>
+        <StartButtonDiv>
+          <Button>
+            {isSignedIn ?? false ? <Link to={`/pickup`}>はじめる</Link> : "未ログイン"}
+          </Button>
+        </StartButtonDiv>
+      </Bg>
     </>
   );
 };

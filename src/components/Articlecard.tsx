@@ -4,37 +4,34 @@ import { Text } from "@yamada-ui/react";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import CheckIcon from "@mui/icons-material/Check";
-
-interface Card {
-  idNum: number;
-  title: string;
-  tag: string;
-  liked: boolean;
-  viewed: boolean;
-  created_at: number;
-  imgUrl: string | undefined;
-}
+import { Link } from "react-router-dom";
+import { type Card } from "../interfaces/Interfaces";
 
 export const Articlecard: React.FC<Card> = (Card) => {
   const [liked, setLiked] = useState(Card.liked);
 
   const handleLike = (): void => {
     setLiked(!liked);
+    Card.liked = liked;
   };
 
   return (
     <>
       <Carddiv>
-        <Thumbnail>
-          <img src={Card.imgUrl} alt="" />
-        </Thumbnail>
+        <Link to={`/detail/${Card.idNum}`}>
+          <Thumbnail>
+            <img src={Card.imgUrl} alt="" />
+          </Thumbnail>
+        </Link>
         <Content>
-          <Title>{Card.title}</Title>
-          <Tag>{Card.tag}</Tag>
+          <Link to={`/detail/${Card.idNum}`}>
+            <Title>{Card.title}</Title>
+            <Tag color="">{Card.tag}</Tag>
+          </Link>
           <Footer>
             <Icons>
               <button onClick={handleLike}>
-                {liked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+                {liked || Card.liked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
               </button>
               {Card.viewed ? <CheckIcon color="secondary" /> : <Text>未読</Text>}
             </Icons>
@@ -54,7 +51,8 @@ padding: 16px;
 border: 1px solid #ddd;
 border-radius: 8px;
 width: 400px; /* カードの幅を設定 */
-height: 200px; /* カードの高さを設定 */`;
+height: 200px; /* カードの高さを設定 */
+`;
 
 const Thumbnail = styled.div`
 width: 80px;
