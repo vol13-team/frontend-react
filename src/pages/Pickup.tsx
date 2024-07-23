@@ -6,16 +6,16 @@ export const Pickup: React.FC = () => {
   const dammy = [
     {
       id: 1,
-      title: "a",
-      tag: "a",
+      title: "記事タイトル1",
+      tag: "タグ1",
       liked: true,
       viewed: true,
       created_at: 1,
     },
     {
       id: 2,
-      title: "b",
-      tag: "b",
+      title: "記事タイトル2",
+      tag: "タグ2",
       liked: false,
       viewed: true,
       created_at: 2,
@@ -23,17 +23,19 @@ export const Pickup: React.FC = () => {
   ];
   return (
     <Style>
-      {dammy.map((article) => (
-        <Articlecard
-          key={article.id}
-          id={article.id}
-          title={article.title}
-          tag={article.tag}
-          liked={article.liked}
-          viewed={article.viewed}
-          created_at={article.created_at}
-        />
-      ))}
+      <CardGrid>
+        {dammy.map((article) => (
+          <Articlecard
+            key={article.id}
+            id={article.id}
+            title={article.title}
+            tag={article.tag}
+            liked={article.liked}
+            viewed={article.viewed}
+            created_at={article.created_at}
+          />
+        ))}
+      </CardGrid>
     </Style>
   );
 };
@@ -41,3 +43,9 @@ export const Pickup: React.FC = () => {
 const Style = styled.div`
 display: flex;
 justifyContent: center`;
+
+const CardGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0px; /* 隣のカードとの間隔を狭める */
+`;
