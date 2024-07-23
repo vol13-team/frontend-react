@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
-
 import icon1 from "../assets/images/image03.jpg";
 import icon2 from "../assets/images/image02.jpeg";
 import icon3 from "../assets/images/image01.jpg";
 import { Heading, Text, Button } from "@yamada-ui/react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import Cookies from "js-cookie";
+import { useAuth } from "@clerk/clerk-react";
 
 interface Article {
   id: number;
@@ -29,18 +28,12 @@ const ArticlePoint: React.FC<Article> = ({ title, summary, icon, url }) => (
 );
 
 export const Home: React.FC = () => {
+  const { isSignedIn } = useAuth();
   const [articles] = useState<Article[]>([
     { id: 1, title: "Point1", summary: "チーム開発をスムーズに", icon: icon1, url: "/" },
     { id: 2, title: "Point2", summary: "技術理解の向上に", icon: icon2, url: "/" },
     { id: 3, title: "Point3", summary: "習熟度の確認に", icon: icon3, url: "/" },
   ]);
-  const [token, setToken] = useState<string | undefined>(undefined);
-
-  useEffect(() => {
-    // ログイン時にトークンを更新する
-    setToken(Cookies.get("__session"));
-    console.log(token);
-  }, [token]);
 
   return (
     <main>
@@ -59,8 +52,8 @@ export const Home: React.FC = () => {
           ))}
         </PointDiv>
         <StartButtonDiv>
-          <StyledButton isLoggedIn={token !== undefined}>
-            {token === undefined ? "未ログイン" : <Link to="/pickup">はじめる</Link>}
+          <StyledButton isLoggedIn={isSignedIn ?? false}>
+            {isSignedIn ? <Link to="/pickup">はじめる</Link> : "未ログイン"}
           </StyledButton>
         </StartButtonDiv>
       </Bg>
