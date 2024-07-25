@@ -23,7 +23,7 @@ export const Articlecard: React.FC<Card> = (Card) => {
   };
 
   return (
-    <Box as="section" sx={{ margin: "90px" }}>
+    <Box as="section" sx={{ margin: "30px" }}>
       <Box
         sx={{
           display: "flex",
