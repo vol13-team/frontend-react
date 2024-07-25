@@ -109,7 +109,7 @@ const PickUpDiv = styled.div`
 const PickUpList = styled.ul`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  // gap: 20px;
+  // gap: 10px;
   list-style: none;
   padding: 0;
   margin: 0;
