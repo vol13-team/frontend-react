@@ -1,5 +1,4 @@
 import React from "react";
-// import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { useUser } from "@clerk/clerk-react";
 import { ArticleImage } from "../components/ArticleImage";
@@ -25,12 +24,6 @@ export const MyPage: React.FC = () => {
     },
     {
       id: 3,
-      img: "https://source.unsplash.com/random",
-      title: "createTest",
-      time: 3600,
-    },
-    {
-      id: 4,
       img: "https://source.unsplash.com/random",
       title: "createTest",
       time: 3600,
@@ -77,9 +70,6 @@ export const MyPage: React.FC = () => {
           </UserInfoDiv>
         </UserDiv>
         <ButtonDiv>
-          <PostButton>
-            <Link to={"/post"}>投稿する</Link>
-          </PostButton>
           <PostButton>
             <Link to={"/profile"}>プロフィールを編集</Link>
           </PostButton>
@@ -128,7 +118,6 @@ const PostButton = styled(Button)`
 const InfoDiv = styled.div`
   display: flex;
   justify-content: ;
-  
   margin: 120px 80px 40px 40px;`;
 
 const ArticleDiv = styled.div`

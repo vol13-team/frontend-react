@@ -1,16 +1,10 @@
 import { Outlet, Link } from "react-router-dom";
 import styled from "styled-components";
-import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/clerk-react";
+import { SignedIn, SignedOut, SignInButton, UserButton, useAuth } from "@clerk/clerk-react";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import Cookies from "js-cookie";
-import { useEffect, useState } from "react";
 
 export const Header: React.FC = () => {
-  const [token, setToken] = useState<string | undefined>(undefined);
-
-  useEffect(() => {
-    setToken(Cookies.get("__session"));
-  }, [token]);
+  const { isSignedIn } = useAuth();
 
   return (
     <>
@@ -20,29 +14,18 @@ export const Header: React.FC = () => {
           Article Park
         </Logo>
         <Navigate>
-          {token === undefined ? (
-            <SigninDiv>
-              <SignedOut>
-                <SignIn />
-              </SignedOut>
-              <SignedIn>
-                <User />
-              </SignedIn>
-            </SigninDiv>
-          ) : (
-            <>
-              <SigninDiv>
-                <SignedOut>
-                  <SignIn />
-                </SignedOut>
-                <SignedIn>
-                  <User />
-                </SignedIn>
-              </SigninDiv>
-              <Link to="mypage">
-                <AccountIcon fontSize="large" />
-              </Link>
-            </>
+          <SigninDiv>
+            <SignedOut>
+              <SignIn />
+            </SignedOut>
+            <SignedIn>
+              <User />
+            </SignedIn>
+          </SigninDiv>
+          {(isSignedIn ?? false) && (
+            <Link to="mypage">
+              <AccountIcon fontSize="large" />
+            </Link>
           )}
         </Navigate>
       </Bg>
@@ -59,7 +42,7 @@ const Bg = styled.header`
     background-color: #F58181;
     position: fixed;
     top: 0;
-    margin:0 0 40px 0;
+    margin: 0 0 100px 0;
     width: 100%;
     height: 4rem;
     margin-bottom: 1rem;

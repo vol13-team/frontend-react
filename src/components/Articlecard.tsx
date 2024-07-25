@@ -1,12 +1,18 @@
 import React, { useState } from "react";
-import { Box, Text, Flex } from "@yamada-ui/react";
+import styled from "styled-components";
+import { Text, Flex, Box } from "@yamada-ui/react";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import CheckIcon from "@mui/icons-material/Check";
 
 interface Card {
-  id: number;
+  idNum: number;
   title: string;
   tag?: string;
   liked: boolean;
-  created_at: string;
+  viewed: boolean;
+  created_at: number;
+  imgUrl: string | undefined;
 }
 
 export const Articlecard: React.FC<Card> = (Card) => {
@@ -26,7 +32,7 @@ export const Articlecard: React.FC<Card> = (Card) => {
           border: "1px solid #ddd",
           borderRadius: "8px",
           width: "400px",
-          height: "170px",
+          height: "150px",
           padding: "16px",
           position: "relative",
           "&:hover": {
@@ -36,21 +42,9 @@ export const Articlecard: React.FC<Card> = (Card) => {
         }}
       >
         <Flex alignItems="flex-start">
-          <Box
-            sx={{
-              width: "60px",
-              height: "60px",
-              background: "#ccc",
-              borderRadius: "8px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontSize: "12px",
-              marginRight: "12px",
-            }}
-          >
-            アイコン
-          </Box>
+          <Thumbnail>
+            <img src={Card.imgUrl} alt="" />
+          </Thumbnail>
           <Box flex="1">
             <Text
               sx={{
@@ -89,38 +83,12 @@ export const Articlecard: React.FC<Card> = (Card) => {
             left: "16px",
           }}
         >
-          <Box
-            sx={{
-              width: "20px",
-              height: "18px",
-              backgroundColor: "transparent",
-              position: "relative",
-              cursor: "pointer",
-              "&::before, &::after": {
-                content: '""',
-                position: "absolute",
-                top: "0",
-                width: "10px",
-                height: "16px",
-                borderRadius: "50px 50px 0 0",
-                backgroundColor: isLiked ? "#ff6b6b" : "#ccc",
-              },
-              "&::before": {
-                left: "10px",
-                transform: "rotate(-45deg)",
-                transformOrigin: "0 100%",
-              },
-              "&::after": {
-                left: "0",
-                transform: "rotate(45deg)",
-                transformOrigin: "100% 100%",
-              },
-              "&:hover::before, &:hover::after": {
-                backgroundColor: "#ff6b6b",
-              },
-            }}
-            onClick={handleLikeClick}
-          />
+          <Icons>
+            <button onClick={handleLikeClick}>
+              {isLiked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+            </button>
+            {Card.viewed ? <CheckIcon color="secondary" /> : <Text>未読</Text>}
+          </Icons>
           <Text
             sx={{
               fontSize: "12px",
@@ -128,10 +96,26 @@ export const Articlecard: React.FC<Card> = (Card) => {
             }}
           >
             {Card.created_at}日前
-            {/* もしくは月日？ */}
           </Text>
         </Flex>
       </Box>
     </Box>
   );
 };
+
+const Thumbnail = styled.div`
+  width: 60px;
+  height: 60px;
+  background: #ccc;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  margin-right: 12px;
+`;
+
+const Icons = styled.div`
+  display: flex;
+  gap: 8px;
+`;
