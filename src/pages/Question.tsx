@@ -1,5 +1,17 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
+import { Box, Container, Button } from "@yamada-ui/react"; //YamadaUIコンポーネント
+
+// ダミーデータの定義
+const dummyData = {
+  question: "Q.凝集度の高いプログラムの特徴は何ですか？",
+  choices: [
+    { id: "A", text: "A.一つのモジュールが異なる役割を果たす" },
+    { id: "B", text: "B.同一の機能を果たす要素が分散されている" },
+    { id: "C", text: "C.モジュールが互いに結結合である" },
+    { id: "D", text: "D.モジュールが特定の機能に集中している" },
+  ],
+};
 
 const Question: React.FC = () => {
   const [selectedChoice, setSelectedChoice] = useState<string | null>(null);
@@ -11,97 +23,85 @@ const Question: React.FC = () => {
   const handleCheckAnswer = () => {
     if (selectedChoice) {
       console.log(`Selected choice: ${selectedChoice}`);
-      window.location.href = "Answer.tsx"; // 解答ページに遷移(後で変更する)
+      window.location.href = "Answerページ"; // 解答ページに遷移(書き方は変更)
     } else {
       alert("選択肢を選んでください");
     }
   };
 
   return (
-    <section style={styles.section}>
-      <div style={styles.container}>
-        <p style={styles.question}>上級者向け問題</p>
-        <p style={styles.subQuestion}>Q.凝集度の高いプログラムの特徴は何ですか？</p>
-        <div style={styles.choices}>
-          {["A", "B", "C", "D"].map((choice) => (
-            <div
-              key={choice}
-              style={{
-                ...styles.choice,
-                backgroundColor: selectedChoice === choice ? "#80c0ff" : "#f0f0f0",
+    <Box margin="15px 20px">
+      <Container>
+        <Box textAlign="center" marginTop="50px">
+          <Box as="h1" marginBottom="10px" fontSize="28px" fontWeight="bold">
+            上級者向け問題
+          </Box>
+          <Box
+            as="h2"
+            backgroundColor="#f9f9f9"
+            padding="20px"
+            borderRadius="10px"
+            border="1px solid #ddd"
+            fontSize="22px"
+          >
+            {dummyData.question}
+          </Box>
+        </Box>
+        <Box
+          display="flex"
+          flexWrap="wrap"
+          justifyContent="center"
+          alignItems="center"
+          maxWidth="900px"
+          margin="0 auto"
+        >
+          {dummyData.choices.map((choice) => (
+            <Box
+              key={choice.id}
+              flex="1 1 calc(50% - 20px)"
+              m="10px"
+              p="30px"
+              sx={{
+                backgroundColor: selectedChoice === choice.id ? "#80c0ff" : "#f0f0f0",
+                borderRadius: "10px",
+                cursor: "pointer",
+                textAlign: "center",
+                fontSize: "18px",
+                transition: "background-color 0.3s ease",
+                "&:hover": {
+                  backgroundColor: selectedChoice === choice.id ? "#80c0ff" : "#e0e0e0",
+                },
               }}
-              onClick={() => handleChoiceClick(choice)}
+              onClick={() => handleChoiceClick(choice.id)}
             >
-              {choice === "A" ? "A.一つのモジュールが多くの異なる役割を果たす" : ""}
-              {choice === "B" ? "B.同一の機能を果たす要素が分散されている" : ""}
-              {choice === "C" ? "C.モジュールが互いに結結合である" : ""}
-              {choice === "D" ? "D.モジュールが特定の機能に集中している" : ""}
-            </div>
+              {choice.text}
+            </Box>
           ))}
-        </div>
-        <div style={styles.buttonContainer}>
-          <button style={styles.button} onClick={handleCheckAnswer}>
+        </Box>
+        <Box marginTop="px" textAlign="right" paddingRight="200px">
+          <Button
+            variant="contained"
+            color="primary"
+            sx={{
+              backgroundColor: "#ff4081",
+              color: "white",
+              padding: "10px 20px",
+              borderRadius: "5px",
+              fontSize: "16px",
+              "&:hover": {
+                backgroundColor: "#e60073",
+              },
+            }}
+            onClick={handleCheckAnswer}
+          >
             答え合わせ
-          </button>
-        </div>
-      </div>
-    </section>
+          </Button>
+        </Box>
+      </Container>
+    </Box>
   );
 };
 
 export default Question;
-
-const styles = {
-  section: {
-    margin: "90px 20px", // セクションの余白
-  },
-  container: {
-    textAlign: "center" as const,
-    marginTop: "50px",
-  },
-  question: {
-    fontSize: "24px",
-    marginBottom: "10px",
-  },
-  subQuestion: {
-    fontSize: "20px",
-    marginBottom: "40px",
-    backgroundColor: "#f9f9f9", // 背景色を追加
-    padding: "20px", // パディングを追加
-    borderRadius: "10px", // 角を丸くする
-    border: "1px solid #ddd", // 境界線を追加
-  },
-  choices: {
-    display: "grid",
-    gridTemplateColumns: "repeat(2, 1fr)",
-    gap: "20px",
-    justifyItems: "center",
-    alignItems: "center",
-    maxWidth: "900px",
-    margin: "0 auto",
-  },
-  choice: {
-    backgroundColor: "#f0f0f0",
-    padding: "30px",
-    borderRadius: "10px",
-    cursor: "pointer",
-    width: "100%", // グリッドアイテムの全幅
-    textAlign: "center" as const,
-  },
-  buttonContainer: {
-    marginTop: "30px",
-    textAlign: "right" as const, // ボタンコンテナを右揃え
-    paddingRight: "200px", // ボタンを右に移動するためのパディング
-  },
-  button: {
-    backgroundColor: "#ff4081",
-    color: "white",
-    border: "none",
-    padding: "10px 20px",
-    borderRadius: "5px",
-    cursor: "pointer",
-    fontSize: "16px",
-  },
-};
 
 ReactDOM.render(<Question />, document.getElementById("root"));

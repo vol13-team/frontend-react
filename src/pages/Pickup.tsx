@@ -8,8 +8,8 @@ export const Pickup: React.FC = () => {
   const dammy = [
     {
       id: 1,
-      title: "a",
-      tag: "a",
+      title: "記事タイトル1",
+      tag: "タグ1",
       liked: true,
       viewed: true,
       created_at: 1,
@@ -17,41 +17,42 @@ export const Pickup: React.FC = () => {
     },
     {
       id: 2,
-      title: "b",
-      tag: "b",
+      title: "記事タイトル2",
+      tag: "タグ2",
       liked: false,
       viewed: false,
       created_at: 2,
       imgUrl: "https://source.unsplash.com/random",
     },
     {
-      id: 2,
-      title: "b",
-      tag: "b",
+      id: 3,
+      title: "記事タイトル3",
+      tag: "タグ3",
       liked: false,
       viewed: true,
       created_at: 2,
       imgUrl: "https://source.unsplash.com/random",
     },
     {
-      id: 2,
-      title: "b",
-      tag: "b",
+      id: 4,
+      title: "記事タイトル4",
+      tag: "タグ4",
       liked: true,
       viewed: true,
       created_at: 2,
       imgUrl: "https://source.unsplash.com/random",
     },
     {
-      id: 2,
-      title: "b",
-      tag: "b",
+      id: 5,
+      title: "記事タイトル5",
+      tag: "タグ5",
       liked: false,
       viewed: true,
       created_at: 2,
       imgUrl: "https://source.unsplash.com/random",
     },
   ];
+
   return (
     <>
       <H1 size="lg">PickUp問題集</H1>
@@ -91,30 +92,31 @@ const H1 = styled(Heading)`
 const ButtonDiv = styled.div`
   display: flex;
   justify-content: flex-end;
-  margin: 0 80px 0 0;`;
+  margin: 0 80px 0 0;
+`;
 
 const Style = styled.div`
-width: 100%;
-margin: 100px auto 40px auto;
-display: flex;
-justify-content: center;
+  width: 100%;
+  // margin: 100px auto 40px auto;
+  display: flex;
+  // justify-content: center;
 `;
 
 const PickUpDiv = styled.div`
   width: 75%;
-
 `;
 
 const PickUpList = styled.ul`
-display: flex;
-justify-content: flex-start;
-flex-wrap: wrap;
-margin: 0;
-padding: 0;
-
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  // gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 `;
 
 const PickUpItem = styled.li`
-margin: 0 20px 40px 20px;
-
+  display: flex;
+  justify-content: center;
 `;
+
